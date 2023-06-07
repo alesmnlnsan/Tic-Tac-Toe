@@ -1,0 +1,42 @@
+html, body{
+    height: 100%;
+}
+
+body{
+    background-color: mistyrose;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: grid;
+    border: 3px solid red;
+}
+h1 {
+    text-align: center;
+}
+.board{
+    height: 300px;
+    width: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    border: 3px solid blue;
+}
+
+.cell{
+    border: 5px solid green;
+    font-size: 50px;
+    text-align: center;
+}
+.circle {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    border: 15px solid yellow;
+    box-sizing: border-box;
+}
+button {
+    display: grid;
+}
