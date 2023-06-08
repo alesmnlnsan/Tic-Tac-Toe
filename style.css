@@ -1,57 +1,88 @@
-html, body{
+html, body {
     height: 100%;
-    background: rgb(255,180,213);
-    background: radial-gradient(circle, rgba(255,180,213,1) 0%, rgba(199,159,233,1) 68%);
+    background-image: url(images/purple.bkg.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    cursor: cell;
+    font-family: 'VT323';
+    font-weight: bold;
+    font-size: 30px;
     }
-
-body{
-    background-color: mistyrose;
+body {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .container {
-    display: grid;
-    border: 3px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 80px;
+    color: #f1d143;
 }
 h1 {
     text-align: center;
     font-family: 'VT323';
-    font-size: 85px;
-    border: 3px solid yellow;
+    font-size: 100px;
+    text-shadow: -1px 0 #eec40b, 0 1px #eec40b, 0 1px #eec40b, 0 1px #eec40b;
 }
-h3 {
+.playerX,
+.playerO {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
     font-family: 'VT323';
-    font-size: 30px;
+    font-size: 40px;
+    color: black;
+    text-shadow: -1px 0 #eec40b, 0 1px #eec40b, 0 1px #eec40b, 0 1px #eec40b;
+    margin-bottom: -10px;
 }
 .board{
+    margin-top: 40px;
     height: 300px;
     width: 300px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     justify-content: center;
-    border: 3px solid blue;
+    border: 5px solid black;
 }
 .cell{
-    border: 5px solid green;
+    border: 5px solid black;
     font-size: 50px;
     text-align: center;
-}
-.circle {
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-    border: 15px solid yellow;
-    box-sizing: border-box;
 }
 button {
     display: grid;
     font-family: 'VT323';
     font-size: 30px;
+    margin-top: 10px;
+}
+button:hover {
+    transform: translateY(-7px);
+    box-shadow: 100px #f1d143;
 }
 footer {
-    border: 3px solid rgb(111, 17, 134);
     text-align: center;
-    margin-top: 75%;
+    margin: 10px 50px 10px 50px;
+    font-size: 10px;
+}
+.copyright {
+    font-family: 'VT323';
+    font-size: 20px;
+    color: rgb(117, 19, 182);
+}
+
+img {
+    height: 30%;
+    width: 30%;
 }

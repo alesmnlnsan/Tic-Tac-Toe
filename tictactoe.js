@@ -1,16 +1,7 @@
 
-
-
-
-
-
-
-
-
-
 // Get the elements needed
 const cells = document.querySelectorAll('.cell');
-const cellsArray = Array.from(cells); //convert to an array I didn't know this just googled-
+const cellsArray = Array.from(cells); 
 
 
 let currentPlayer = 'X';
@@ -19,7 +10,6 @@ let boardArray = ['', '', '', '', '', '', '', '', ''];
 //[3, 4, 5]
 //[6, 7, 8]
 //this is what our board looks like we fill it with X and O then if it is the same as our checkIfWinner we win!!
-
 let playerOne = 0;
 let playerTwo= 0;
 
@@ -95,21 +85,21 @@ function checkIfWinner() {
 
 // show the game result
 function gameResult(result) {
-  const playerOneWin = document.querySelector('h3');
-  const playerTwoWin =document.querySelector('.playerO');
+  const playerOneWin = document.querySelector('.playerX');
+  const playerTwoWin = document.querySelector('.playerO');
 
   if (result === 'X') {
-    alert('Player ' + result + ' wins!');
+    alert('Player ' + result + ' wins the game!');
     playerOne++; // increment tries of games
     playerOneWin.innerText = "Player X WIN: " + playerOne;
     resetAuto();
   } else if (result === 'O') {
-    alert('Player ' + result + ' wins!');
+    alert('Player ' + result + ' wins the game!');
     playerTwo++
     playerTwoWin.innerText = "Player O WIN: " + playerTwo;
     resetAuto();
   } else if (result === 'Tie') {
-    alert('Tied');
+    alert('Tied Resut!');
     resetAuto();
   }
 }
@@ -127,6 +117,7 @@ function switchPlayer() {
 //we want to reset all the cell element to empty again or ''
 //we want to reset the boardArray
 function resetAuto() {
+  boardArray = ['', '', '', '', '', '', '', '', '']; 
   cellsArray.forEach(function (cell) {
     cell.innerText = '';
   });
