@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TICTACTOE</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
     <body>
 
      <div class="container">
         <div class="header"></div>
-        <h1>TICTACTOE</h1>
+        <h1><em>TICTACTOE</em></h1>
+        <h3>Player X: </h3>
+        <h3 class="playerO">Player O: </h3>
 
         <div class="board">
             <div class="cell"></div>
@@ -27,7 +32,9 @@
         </div>
     </div>
 
-    <button class="reset">PLAY AGAIN</button>
+    <footer>
+        <button id="reset">PLAY AGAIN</button>
+    </footer>
 
     <script src="tictactoe.js"></script>
 </body>

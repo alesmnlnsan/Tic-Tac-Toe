@@ -1,23 +1,29 @@
-//winning combination
-//losing
-//draw
 
-//functions when X and O is clicked alternatively
 
-//update win count
-//play again
-//disable all cell when the game finishes
+
+
+
+
+
+
 
 
 // Get the elements needed
 const cells = document.querySelectorAll('.cell');
 const cellsArray = Array.from(cells); //convert to an array I didn't know this just googled-
-const resetBtn = document.getElementsByClassName('reset');
+
 
 let currentPlayer = 'X';
-let boardArray = ['', '', '', '', '', '', '', '', '']; //this is what our board looks like we fill it with X and O then if it is the same as our checkIfWinner we win!!
+let boardArray = ['', '', '', '', '', '', '', '', '']; 
+//[0, 1, 2]
+//[3, 4, 5]
+//[6, 7, 8]
+//this is what our board looks like we fill it with X and O then if it is the same as our checkIfWinner we win!!
 
-// clicking every cell
+let playerOne = 0;
+let playerTwo= 0;
+
+
 function handleClick(event) {
   const clickedCell = event.target; 
   const clickedCellArray = cellsArray.indexOf(clickedCell); //cell we clicked. every cell because we accessed the index
@@ -44,7 +50,7 @@ function gameStart() {
 function checkIfWinner() {
     // Check rows if board array index is not blank/ board is filled with X or O
     if (boardArray[0] !== '' && boardArray[0] === boardArray[1] && boardArray[0] === boardArray[2]) {
-      return boardArray[0];
+      return boardArray[0]; //return the letter of the player! X or O
     }
     if (boardArray[3] !== '' && boardArray[3] === boardArray[4] && boardArray[3] === boardArray[5]) {
       return boardArray[3];
@@ -64,7 +70,7 @@ function checkIfWinner() {
       return boardArray[2];
     }
   
-    // right top to bottom left, bottom right top left
+    // right top to bottom left, bottom right to top left
     if (boardArray[0] !== '' && boardArray[0] === boardArray[4] && boardArray[0] === boardArray[8]) {
       return boardArray[0];
     }
@@ -72,15 +78,35 @@ function checkIfWinner() {
       return boardArray[2];
     }
   
-    if (boardArray === '') {
+
+    //TIED RESULT
+    let gameTied = true;
+  
+    boardArray.forEach(function(cell) {
+      if (cell === '') {
+        gameTied = false;
+      }
+    });
+
+    if (gameTied) {
       return 'Tie';
     }
 }
 
 // show the game result
 function gameResult(result) {
-  if (result === 'X' || result === 'O') {
+  const playerOneWin = document.querySelector('h3');
+  const playerTwoWin =document.querySelector('.playerO');
+
+  if (result === 'X') {
     alert('Player ' + result + ' wins!');
+    playerOne++; // increment tries of games
+    playerOneWin.innerText = "Player X WIN: " + playerOne;
+    resetAuto();
+  } else if (result === 'O') {
+    alert('Player ' + result + ' wins!');
+    playerTwo++
+    playerTwoWin.innerText = "Player O WIN: " + playerTwo;
     resetAuto();
   } else if (result === 'Tie') {
     alert('Tied');
@@ -88,38 +114,30 @@ function gameResult(result) {
   }
 }
 
-// switch
+// switch. pod 1 helped me but hooooow is that the case with =
 function switchPlayer() {
   if (currentPlayer === "X") {
-    currentPlayer === "O";
+    currentPlayer = "O";
   } else {
-    currentPlayer === "X";
+    currentPlayer = 'X';
   }
 }
 
-// reset the game automatically after winning/losing
+// reset the game automatically after winning/tied results
+//we want to reset all the cell element to empty again or ''
+//we want to reset the boardArray
 function resetAuto() {
-  boardArray = ['', '', '', '', '', '', '', '', ''];
   cellsArray.forEach(function (cell) {
-    cell.textContent = '';
+    cell.innerText = '';
   });
 }
 
-// reset with  play again button
+// reset with  play again button.
 function resetGame() {
+  const resetBtn = document.getElementById('reset');
   resetBtn.addEventListener('click', resetAuto);
 }
 
 gameStart();
 resetGame();
 
-
-
-/*
-- how do I make the reset button functional it resets automatically when someone wins
-- how do I tally wins
-- cant have tied result
--cant reset
--cant switch to 'O'
-- ONLY X NOW WHAT DID I DO
-*/
