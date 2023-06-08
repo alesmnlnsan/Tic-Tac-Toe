@@ -1,6 +1,6 @@
 html, body {
     height: 100%;
-    background-image: url(images/purple.bkg.png);
+    background-image: url(images/background.sky.png);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -61,7 +61,7 @@ h1 {
     font-size: 50px;
     text-align: center;
 }
-button {
+#reset {
     display: grid;
     font-family: 'VT323';
     font-size: 30px;
@@ -69,7 +69,12 @@ button {
 }
 button:hover {
     transform: translateY(-7px);
-    box-shadow: 100px #f1d143;
+}
+#play-song {
+    display: grid;
+    font-family: 'VT323';
+    font-size: 20px;
+    margin-top: 10px;
 }
 footer {
     text-align: center;

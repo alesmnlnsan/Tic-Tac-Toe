@@ -1,3 +1,14 @@
+//music
+let audio = document.getElementById("bg-music");
+let playBtn = document.getElementById("play-song")
+
+playBtn.addEventListener('click', function() {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+});
 
 // Get the elements needed
 const cells = document.querySelectorAll('.cell');
@@ -16,7 +27,7 @@ let playerTwo= 0;
 
 function handleClick(event) {
   const clickedCell = event.target; 
-  const clickedCellArray = cellsArray.indexOf(clickedCell); //cell we clicked. every cell because we accessed the index
+  const clickedCellArray = cellsArray.indexOf(clickedCell); //every cell index because we accessed the index
 
   if (boardArray[clickedCellArray] === '') {
     boardArray[clickedCellArray] = currentPlayer;
