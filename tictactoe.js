@@ -1,4 +1,4 @@
-//music
+// background-music.
 let audio = document.getElementById("bg-music");
 let playBtn = document.getElementById("play-song")
 
@@ -100,22 +100,22 @@ function gameResult(result) {
   const playerTwoWin = document.querySelector('.playerO');
 
   if (result === 'X') {
-    alert('Player ' + result + ' wins the game!');
+    //alert('Player ' + result + ' wins the game!');
     playerOne++; // increment tries of games
     playerOneWin.innerText = "Player X WIN: " + playerOne;
     resetAuto();
   } else if (result === 'O') {
-    alert('Player ' + result + ' wins the game!');
+    //alert('Player ' + result + ' wins the game!');
     playerTwo++
     playerTwoWin.innerText = "Player O WIN: " + playerTwo;
     resetAuto();
   } else if (result === 'Tie') {
-    alert('Tied Resut!');
+    //alert('Tied Resut!');
     resetAuto();
   }
 }
 
-// switch. pod 1 helped me but hooooow is that the case with =
+// switch players
 function switchPlayer() {
   if (currentPlayer === "X") {
     currentPlayer = "O";
@@ -125,8 +125,6 @@ function switchPlayer() {
 }
 
 // reset the game automatically after winning/tied results
-//we want to reset all the cell element to empty again or ''
-//we want to reset the boardArray
 function resetAuto() {
   boardArray = ['', '', '', '', '', '', '', '', '']; 
   cellsArray.forEach(function (cell) {
@@ -134,7 +132,7 @@ function resetAuto() {
   });
 }
 
-// reset with  play again button.
+// reset with  play again button
 function resetGame() {
   const resetBtn = document.getElementById('reset');
   resetBtn.addEventListener('click', resetAuto);
@@ -142,4 +140,3 @@ function resetGame() {
 
 gameStart();
 resetGame();
-
