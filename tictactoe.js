@@ -14,25 +14,24 @@ playBtn.addEventListener('click', function() {
 const cells = document.querySelectorAll('.cell');
 const cellsArray = Array.from(cells); 
 
-
+//variables
 let currentPlayer = 'X';
 let boardArray = ['', '', '', '', '', '', '', '', '']; 
 //[0, 1, 2]
 //[3, 4, 5]
 //[6, 7, 8]
-//this is what our board looks like we fill it with X and O then if it is the same as our checkIfWinner we win!!
+//this is what our board looks like 
 let playerOne = 0;
 let playerTwo= 0;
 
 
 function handleClick(event) {
   const clickedCell = event.target; 
-  const clickedCellArray = cellsArray.indexOf(clickedCell); //every cell index because we accessed the index
-
+  const clickedCellArray = cellsArray.indexOf(clickedCell); 
   if (boardArray[clickedCellArray] === '') {
     boardArray[clickedCellArray] = currentPlayer;
     clickedCell.textContent = currentPlayer;
-//if the cell we clicked on the board array is empty { clicked cell = what the player clicked then we update the textContent of the cell to currentPlayer}
+
 
     const result = checkIfWinner();
     gameResult(result);
@@ -100,17 +99,14 @@ function gameResult(result) {
   const playerTwoWin = document.querySelector('.playerO');
 
   if (result === 'X') {
-    //alert('Player ' + result + ' wins the game!');
-    playerOne++; // increment tries of games
+    playerOne++; 
     playerOneWin.innerText = "Player X WIN: " + playerOne;
     resetAuto();
   } else if (result === 'O') {
-    //alert('Player ' + result + ' wins the game!');
     playerTwo++
     playerTwoWin.innerText = "Player O WIN: " + playerTwo;
     resetAuto();
   } else if (result === 'Tie') {
-    //alert('Tied Resut!');
     resetAuto();
   }
 }
@@ -130,6 +126,7 @@ function resetAuto() {
   cellsArray.forEach(function (cell) {
     cell.innerText = '';
   });
+  currentPlayer = 'x';
 }
 
 // reset with  play again button
